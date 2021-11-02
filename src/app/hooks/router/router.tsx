@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 const route = {
     home: '/',
     about: '/about',
+    search: '/search'
 };
 
 type PropsRouter = {
@@ -14,6 +15,7 @@ type PropsRouter = {
 
 const useRouter = () => {
     const history = useHistory();
+    const backAgain = () => history.goBack()
     // PUSH
     const push = (prop: PropsRouter) => {
         history.push(
@@ -24,7 +26,7 @@ const useRouter = () => {
     return {
         push,
         route,
-
+        backAgain
     };
 };
 

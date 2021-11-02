@@ -1,0 +1,5 @@
+const GET_USER = 'GET_USER';
+const SET_USER = 'SET_USER';
+const CREATE_USER = 'CREATE_USER';
+
+export { SET_USER, GET_USER, CREATE_USER };

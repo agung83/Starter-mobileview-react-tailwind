@@ -1,7 +1,15 @@
 
-import { Link, NavLink } from 'react-router-dom'
+import { NavLink, NavLinkProps } from 'react-router-dom'
+
 import { useRouter } from '../../../hooks/router'
 
+interface TypePropsRouter extends NavLinkProps {
+    to: string,
+    isActive?: any,
+    children?: JSX.Element | JSX.Element[]
+}
+
+const CustomNavLink = (props: TypePropsRouter) => <NavLink {...props} />
 
 export function BottomNav() {
 
@@ -15,11 +23,13 @@ export function BottomNav() {
     //     })
     // }
 
+
+
     return (
         <div className="w-full h-full">
             <section id="bottom-navigation" className="block fixed inset-x-0 bottom-0 z-10 bg-white shadow-lg">
                 <div id="tabs" className="flex justify-center">
-                    <NavLink exact activeClassName="text-blue-800" to={router.route.home} className="w-28 text-gray-600 hover:text-teal-500 justify-center inline-block text-center pt-2 pb-1">
+                    <CustomNavLink exact activeClassName="text-blue-800" to={router.route.home} className="w-28 text-gray-600 hover:text-teal-500 justify-center inline-block text-center pt-2 pb-1">
                         <svg width="25" height="25" viewBox="0 0 42 42" className="inline-block mb-1 hover:text-gray-400">
                             <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
                                 <path d="M21.0847458,3.38674884 C17.8305085,7.08474576 17.8305085,10.7827427 21.0847458,14.4807396 C24.3389831,18.1787365 24.3389831,22.5701079 21.0847458,27.6548536 L21.0847458,42 L8.06779661,41.3066256 L6,38.5331279 L6,26.2681048 L6,17.2542373 L8.88135593,12.4006163 L21.0847458,2 L21.0847458,3.38674884 Z" fill="currentColor" fillOpacity="0.1"></path>
@@ -30,8 +40,11 @@ export function BottomNav() {
                             </g>
                         </svg>
                         <span className="tab tab-home block text-xs">Home</span>
-                    </NavLink>
-                    <NavLink exact activeClassName="text-blue-800" className="w-28 text-gray-600 justify-center inline-block text-center pt-2 pb-1" to={router.route.about}>
+                    </CustomNavLink>
+                    <CustomNavLink
+                        exact activeClassName="text-blue-800"
+                        className="w-28 text-gray-600 justify-center inline-block text-center pt-2 pb-1" to={router.route.about}
+                    >
                         <svg width="25" height="25" viewBox="0 0 42 42" className="inline-block mb-1">
                             <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
                                 <path d="M14.7118754,20.0876892 L8.03575361,20.0876892 C5.82661462,20.0876892 4.03575361,18.2968282 4.03575361,16.0876892 L4.03575361,12.031922 C4.03575361,8.1480343 6.79157254,4.90780265 10.4544842,4.15995321 C8.87553278,8.5612583 8.1226025,14.3600511 10.9452499,15.5413938 C13.710306,16.6986332 14.5947501,18.3118357 14.7118754,20.0876892 Z M14.2420017,23.8186831 C13.515543,27.1052019 12.7414284,30.2811559 18.0438552,31.7330419 L18.0438552,33.4450645 C18.0438552,35.6542035 16.2529942,37.4450645 14.0438552,37.4450645 L9.90612103,37.4450645 C6.14196811,37.4450645 3.09051926,34.3936157 3.09051926,30.6294627 L3.09051926,27.813861 C3.09051926,25.604722 4.88138026,23.813861 7.09051926,23.813861 L14.0438552,23.813861 C14.1102948,23.813861 14.1763561,23.8154808 14.2420017,23.8186831 Z M20.7553776,32.160536 C23.9336213,32.1190063 23.9061943,29.4103976 33.8698747,31.1666916 C34.7935223,31.3295026 35.9925894,31.0627305 37.3154077,30.4407183 C37.09778,34.8980343 33.4149547,38.4450645 28.9036761,38.4450645 C24.9909035,38.4450645 21.701346,35.7767637 20.7553776,32.160536 Z" fill="currentColor" opacity="0.1"></path>
@@ -46,7 +59,7 @@ export function BottomNav() {
                         </svg>
 
                         <span className="tab tab-kategori block text-xs">About</span>
-                    </NavLink>
+                    </CustomNavLink>
                     <a href="#" className="w-28 text-gray-600  justify-center inline-block text-center pt-2 pb-1">
                         <svg width="25" height="25" viewBox="0 0 42 42" className="inline-block mb-1 hover:text-red-300">
                             <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">

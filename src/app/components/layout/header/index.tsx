@@ -1,4 +1,5 @@
 
+import { useRouter } from "../../../hooks/router"
 import { SwiHeader } from "../../swiper"
 
 
@@ -21,9 +22,10 @@ const urlObj = [
 
 
 export function Header() {
+    const router = useRouter()
     return (
         <>
-            <div className="bg-gradient-to-r from-blue-500 to-blue-400 shadow-2xl p-5 h-52 rounded-b-xl">
+            <header className="bg-gradient-to-r from-blue-500 to-blue-400 shadow-2xl p-5 h-52 rounded-b-xl">
                 <div className="flex justify-between">
                     <div className="font-extrabold text-xl text-white">ItemMU</div>
                     <div className="flex">
@@ -40,15 +42,15 @@ export function Header() {
 
                     </div>
                 </div>
-                <div className="pt-7 md:p-50 flex ">
+                <div className="pt-7  md:p-50 flex ">
                     <div className="bg-white  p-2  rounded-l-lg ">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                         </svg>
                     </div>
-                    <input type="text" className="w-full focus:outline-none rounded-r-lg placeholder-gray-600 subpixel-antialiased " placeholder="Cari Ginjal Yuk Gaskeun..." />
+                    <input onFocus={() => router.push({ pathname: router.route.search, })} type="text" className="w-full focus:outline-none rounded-r-lg placeholder-gray-600 subpixel-antialiased " placeholder="Cari Ginjal Yuk Gaskeun..." />
                 </div>
-            </div>
+            </header>
             <div className="flex justify-center">
                 <SwiHeader dataSlide={urlObj} />
             </div>

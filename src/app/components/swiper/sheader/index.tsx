@@ -17,7 +17,7 @@ type props = {
 export const SwiperHeader = ({ dataSlide }: props) => {
 
     return (
-        <Swiper centeredSlides={true} pagination={{ dynamicBullets: false, bulletClass: "tes" }} tag="ul" className="md:-mt-20 -mt-16 bg-gray-50 rounded-xl w-11/12 shadow-xl" autoplay={{
+        <Swiper centeredSlides={true} pagination={{ dynamicBullets: false, bulletClass: "tes" }} tag="ul" className="md:-mt-20 -mt-16 bg-gray-50 rounded-xl w-11/12 shadow-lg" autoplay={{
             "delay": 5000,
             "disableOnInteraction": false,
         }}>

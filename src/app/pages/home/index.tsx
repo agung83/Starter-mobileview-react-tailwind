@@ -1,5 +1,6 @@
 
-import { CardView, WidgetFront } from '../../components/interface'
+
+import { CardView, WidgetFront, AlertCustome } from '../../components/interface'
 import { Header, Footer, WithBottomNav } from "../../components/layout"
 
 const terbaikData = [
@@ -8,7 +9,7 @@ const terbaikData = [
         Name: "Playstation Network Card",
         Stok: "150",
         StokPercentage: "60%",
-        HargaCoret: "Rp. 130.000",
+        HargaCoret: "Rp. 18.700.000",
         HargaPure: "Rp 106.000",
         Status: "Pengiriman Instan",
         Terjual: "1531 terjual",
@@ -71,17 +72,23 @@ const terbaikData = [
     },
 ]
 
+type TypeState = {
+    counter: number,
+    increment: () => {},
+    decrement: () => {}
+}
 
-export const PageHome = () => {
+export const PageHome = ({ counter, increment, decrement }: TypeState) => {
+
     return (
         <WithBottomNav>
             <Header />
-
-
-
             <div className="main">
+                <AlertCustome />
                 <WidgetFront />
-                <CardView title="Termurah di Sumatera Barat" dataCard={terbaikData} />
+                <CardView title="Termurah di Sumatera Barat" smallTitle="Kami berikan yang terbaik" dataCard={terbaikData} />
+                <CardView title="Terlaris di Sumatera Barat" smallTitle="oke" dataCard={terbaikData} />
+                <CardView title="Paling banyak di cari" smallTitle="mantul" dataCard={terbaikData} />
             </div>
             <Footer />
         </WithBottomNav>

@@ -9,14 +9,19 @@ SwiperCore.use([Pagination]);
 
 type props = {
     title?: String,
+    smallTitle?: String
     dataCard: Array<any>
 }
 
 
-export function Card({ title, dataCard }: props) {
+export function Card({ title, smallTitle, dataCard }: props) {
     return (
-        <div className="container-card">
-            <p className="font-bold text-base p-5 text-gray-700">{title}</p>
+        <div className="container-card mb-5">
+            <p className="font-bold text-base pl-5 mb-2 text-gray-700">{title}</p>
+            <div className="flex justify-between">
+                <p className="text-xs text-gray-900 pl-5 mb-3">{smallTitle}</p>
+                <a href="#" className="text-blue-600 font-bold text-sm pr-5">Lihat Semua</a>
+            </div>
             <Swiper
                 tag="ul"
                 className="bg-white"
@@ -35,13 +40,13 @@ export function Card({ title, dataCard }: props) {
                     },
                     // when window width is >= 640px
                     640: {
-                        slidesPerView: 4,
+                        slidesPerView: 3,
                         spaceBetween: 8
                     },
                 }} >
                 {
                     dataCard.map((pecah, key) => (
-                        <SwiperSlide tag="li" onClick={() => alert('ss')}>
+                        <SwiperSlide key={key} tag="li" onClick={() => alert('ss')}>
                             <div className="shadow-lg  rounded-md border hover:border-blue-300 cursor-pointer mb-5">
                                 <img src={pecah.Image} alt="" className="object-cover object-top h-24 rounded-t-md w-full" />
                                 <div className="p-2 ">
